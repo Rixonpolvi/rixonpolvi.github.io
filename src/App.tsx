@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom'
-import HomePage from './components/HomePage'
-import CVPage from './components/CVPage'
+import HomePage from './pages/HomePage'
+import CVPage from './pages/CVPage'
+import TimelinePage from './pages/TimelinePage'
 import './App.css'
 import './components/CVPage.css'
 
@@ -12,6 +13,7 @@ function Header() {
       <nav>
         <ul>
           <li><Link to="/">Home</Link></li>
+          <li><Link to="/timeline">Timeline</Link></li>
           <li><Link to="/cv">CV</Link></li>
         </ul>
       </nav>
@@ -38,6 +40,7 @@ function App() {
         {/* This is where different pages will be displayed based on the URL */}
         <Routes>
           <Route path="/" element={<HomePage />} />
+          <Route path="/timeline" element={<TimelinePage />} />
           <Route path="/cv" element={<CVPage />} />
         </Routes>
         
