@@ -86,8 +86,12 @@ export interface CVData {
 }
 
 // Helper function to format dates
-function formatDate(dateString: string): string {
-  if (dateString === 'present') return 'Present'
+function formatDate(dateString: string | null): string {
+  if (!dateString) {
+    return 'Present';
+  }
+  
+  // Create a date object. The constructor correctly handles "YYYY-MM-DD" format.
   const date = new Date(dateString)
   return date.toLocaleDateString('en-US', { year: 'numeric', month: 'short' })
 }
@@ -104,7 +108,7 @@ const ExperienceItem: React.FC<{ job: Experience }> = ({ job }) => (
       <h3 className="experience-item__position">{job.position}</h3>
       <h4 className="experience-item__company">{job.company}</h4>
       <p className="experience-item__dates">
-        {job.startDate} – {job.endDate || 'Present'}
+        {formatDate(job.startDate)} – {formatDate(job.endDate) || 'Present'}
       </p>
     </header>
     {job.description && <p className="experience-item__description">{job.description}</p>}
