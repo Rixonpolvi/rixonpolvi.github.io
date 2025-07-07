@@ -1,58 +1,88 @@
 import cvData from '../data/cv.json'
 import './CVPage.css'
 
-interface CVData {
-  personalInfo: {
-    name: string
-    title: string
-    email: string
-    phone: string
-    location: string
-    website: string
-    linkedin: string
-    github: string
-  }
-  summary: string
-  experience: Array<{
-    company: string
-    position: string
-    location: string
-    startDate: string
-    endDate: string
-    description: string
-    achievements: string[]
-  }>
-  education: Array<{
-    institution: string
-    degree: string
-    location: string
-    startDate: string
-    endDate: string
-    gpa: string
-    relevantCourses: string[]
-  }>
-  skills: {
-    programming: string[]
-    tools: string[]
-    concepts: string[]
-  }
-  projects: Array<{
-    name: string
-    description: string
-    technologies: string[]
-    url: string
-    highlights: string[]
-  }>
-  languages: Array<{
-    language: string
-    proficiency: string
-  }>
-  certifications: Array<{
-    name: string
-    issuer: string
-    date: string
-    url: string
-  }>
+interface Link {
+  website: string;
+  linkedin: string;
+  github: string;
+  portfolio: string;
+}
+
+interface PersonalInfo {
+  name: {
+    first: string;
+    middle: string;
+    last: string;
+  };
+  title: string;
+  email: string;
+  phone: string;
+  city: string;
+  country: string;
+  links: Link;
+}
+
+interface Technology {
+  name: string;
+  category: string;
+}
+
+interface Experience {
+  id: string;
+  company: string;
+  position: string;
+  startDate: string;
+  endDate: string | null;
+  description: string;
+  achievements: string[];
+  technologies: Technology[];
+}
+
+interface Education {
+  id: string;
+  institution: string;
+  degree: string;
+  field: string;
+  startDate: string;
+  endDate: string;
+}
+
+interface Certification {
+  name: string;
+  issuer: string;
+  date: string;
+  expiryDate: string;
+  credentialId: string;
+  credentialURL: string;
+}
+
+interface Metadata {
+  version: string;
+  lastUpdated: string;
+  format: string;
+}
+
+interface Skills {
+  description: string;
+  categories: {
+    name: string;
+    items: string[];
+  }[];
+  languages: {
+    name: string;
+    proficiency: string;
+  }[];
+  certifications: Certification[];
+}
+
+export interface CVData {
+  $schema?: string; // Optional property for the schema link
+  personal: PersonalInfo;
+  summary: string;
+  experience: Experience[];
+  education: Education[];
+  skills: Skills;
+  metadata: Metadata;
 }
 
 // Helper function to format dates
@@ -62,191 +92,101 @@ function formatDate(dateString: string): string {
   return date.toLocaleDateString('en-US', { year: 'numeric', month: 'short' })
 }
 
-function CVPage() {
-  const cv = cvData as CVData
+// A small helper component for technology tags to keep the main component clean
+const TechPill: React.FC<{ tech: { name: string; category: string } }> = ({ tech }) => (
+  <span className="tech-pill" title={tech.category}>{tech.name}</span>
+);
+
+// A helper component for a single experience entry
+const ExperienceItem: React.FC<{ job: Experience }> = ({ job }) => (
+  <article className="experience-item">
+    <header className="experience-item__header">
+      <h3 className="experience-item__position">{job.position}</h3>
+      <h4 className="experience-item__company">{job.company}</h4>
+      <p className="experience-item__dates">
+        {job.startDate} – {job.endDate || 'Present'}
+      </p>
+    </header>
+    {job.description && <p className="experience-item__description">{job.description}</p>}
+    <ul className="experience-item__achievements">
+      {job.achievements.map((ach, index) => <li key={index}>{ach}</li>)}
+    </ul>
+    <footer className="experience-item__technologies">
+      {job.technologies.map((tech) => <TechPill key={tech.name} tech={tech} />)}
+    </footer>
+  </article>
+);
+
+
+const CVPage: React.FC = () => {
+  // Use our CVData interface to give TypeScript context for the imported JSON.
+  // This is the step that provides type safety.
+  const cv: CVData = cvData;
 
   return (
-    <div className="cv-container">
-      {/* Header Section */}
+    <div className="cv-page">
       <header className="cv-header">
-        <div className="cv-header-content">
-          <h1 className="cv-name">{cv.personalInfo.name}</h1>
-          <h2 className="cv-title">{cv.personalInfo.title}</h2>
-          
-          <div className="cv-contact">
-            <div className="contact-item">
-              <span>📧</span>
-              <a href={`mailto:${cv.personalInfo.email}`}>{cv.personalInfo.email}</a>
-            </div>
-            <div className="contact-item">
-              <span>📱</span>
-              <span>{cv.personalInfo.phone}</span>
-            </div>
-            <div className="contact-item">
-              <span>📍</span>
-              <span>{cv.personalInfo.location}</span>
-            </div>
-            <div className="contact-item">
-              <span>🌐</span>
-              <a href={cv.personalInfo.website} target="_blank" rel="noopener noreferrer">
-                Portfolio
-              </a>
-            </div>
-            <div className="contact-item">
-              <span>💼</span>
-              <a href={cv.personalInfo.linkedin} target="_blank" rel="noopener noreferrer">
-                LinkedIn
-              </a>
-            </div>
-            <div className="contact-item">
-              <span>🐙</span>
-              <a href={cv.personalInfo.github} target="_blank" rel="noopener noreferrer">
-                GitHub
-              </a>
-            </div>
-          </div>
+        <h1>{`${cv.personal.name.first} ${cv.personal.name.middle} ${cv.personal.name.last}`}</h1>
+        <h2>{cv.personal.title}</h2>
+        <div className="contact-info">
+          <a href={`mailto:${cv.personal.email}`}>{cv.personal.email}</a>
+          <span> • </span>
+          <span>{cv.personal.phone}</span>
+          <span> • </span>
+          <a href={cv.personal.links.linkedin} target="_blank" rel="noopener noreferrer">LinkedIn</a>
         </div>
       </header>
 
-      <div className="cv-content">
-        {/* Summary Section */}
-        <section className="cv-section">
-          <h3 className="section-title">Professional Summary</h3>
-          <p className="cv-summary">{cv.summary}</p>
+      <main className="cv-main">
+        <section className="cv-section" id="experience">
+          <h2>Experience</h2>
+          <div className="experience-list">
+            {cv.experience.map(job => <ExperienceItem key={job.id} job={job} />)}
+          </div>
         </section>
 
-        {/* Experience Section */}
-        <section className="cv-section">
-          <h3 className="section-title">Experience</h3>
-          {cv.experience.map((exp, index) => (
-            <div key={index} className="experience-item">
-              <div className="experience-header">
-                <div>
-                  <h4 className="position-title">{exp.position}</h4>
-                  <p className="company-name">{exp.company} • {exp.location}</p>
-                </div>
-                <div className="date-range">
-                  {formatDate(exp.startDate)} - {formatDate(exp.endDate)}
-                </div>
-              </div>
-              
-              <p className="job-description">{exp.description}</p>
-              
-              <ul className="achievements-list">
-                {exp.achievements.map((achievement, idx) => (
-                  <li key={idx}>{achievement}</li>
+        <section className="cv-section" id="skills">
+          <h2>Skills & Certifications</h2>
+          <div className="skills-certifications-grid">
+            <div className="certifications-list">
+              <h3>Certifications</h3>
+              <ul>
+                {cv.skills.certifications.map(cert => (
+                  <li key={cert.credentialId}>
+                    <strong>{cert.name}</strong> ({cert.issuer})
+                    <br />
+                    <a href={cert.credentialURL} target="_blank" rel="noopener noreferrer">Verify Credential</a>
+                  </li>
                 ))}
               </ul>
             </div>
-          ))}
-        </section>
-
-        {/* Skills Section */}
-        <section className="cv-section">
-          <h3 className="section-title">Technical Skills</h3>
-          <div className="skills-grid">
-            <div className="skill-category">
-              <h4>Programming</h4>
-              <div className="skill-tags">
-                {cv.skills.programming.map((skill, index) => (
-                  <span key={index} className="skill-tag">{skill}</span>
-                ))}
-              </div>
-            </div>
-            
-            <div className="skill-category">
-              <h4>Tools & Technologies</h4>
-              <div className="skill-tags">
-                {cv.skills.tools.map((skill, index) => (
-                  <span key={index} className="skill-tag">{skill}</span>
-                ))}
-              </div>
-            </div>
-            
-            <div className="skill-category">
-              <h4>Concepts</h4>
-              <div className="skill-tags">
-                {cv.skills.concepts.map((skill, index) => (
-                  <span key={index} className="skill-tag">{skill}</span>
-                ))}
-              </div>
+            <div className="skills-list">
+              <h3>Methodologies & Frameworks</h3>
+              {cv.skills.categories.map(category => (
+                <div key={category.name}>
+                    {/* Hiding the category name as it's explicit in the h3 */}
+                    <ul>
+                        {category.items.map(item => <li key={item}>{item}</li>)}
+                    </ul>
+                </div>
+              ))}
             </div>
           </div>
         </section>
 
-        {/* Projects Section */}
-        <section className="cv-section">
-          <h3 className="section-title">Projects</h3>
-          {cv.projects.map((project, index) => (
-            <div key={index} className="project-item">
-              <div className="project-header">
-                <h4 className="project-name">
-                  <a href={project.url} target="_blank" rel="noopener noreferrer">
-                    {project.name}
-                  </a>
-                </h4>
-                <div className="project-technologies">
-                  {project.technologies.map((tech, idx) => (
-                    <span key={idx} className="tech-tag">{tech}</span>
-                  ))}
-                </div>
-              </div>
-              
-              <p className="project-description">{project.description}</p>
-              
-              <ul className="project-highlights">
-                {project.highlights.map((highlight, idx) => (
-                  <li key={idx}>{highlight}</li>
-                ))}
-              </ul>
+        <section className="cv-section" id="education">
+          <h2>Education</h2>
+          {cv.education.map(edu => (
+            <div key={edu.id} className="education-item">
+              <h3>{edu.degree} in {edu.field}</h3>
+              <h4>{edu.institution}</h4>
+              <p>{edu.startDate} – {edu.endDate}</p>
             </div>
           ))}
         </section>
-
-        {/* Education Section */}
-        <section className="cv-section">
-          <h3 className="section-title">Education</h3>
-          {cv.education.map((edu, index) => (
-            <div key={index} className="education-item">
-              <div className="education-header">
-                <div>
-                  <h4 className="degree-title">{edu.degree}</h4>
-                  <p className="institution-name">{edu.institution} • {edu.location}</p>
-                </div>
-                <div className="date-range">
-                  {formatDate(edu.startDate)} - {formatDate(edu.endDate)}
-                </div>
-              </div>
-              
-              <p className="gpa">GPA: {edu.gpa}</p>
-              
-              <div className="relevant-courses">
-                <strong>Relevant Courses:</strong>
-                <span className="courses-list">
-                  {edu.relevantCourses.join(' • ')}
-                </span>
-              </div>
-            </div>
-          ))}
-        </section>
-
-        {/* Additional sections can be added here */}
-        {cv.languages && cv.languages.length > 0 && (
-          <section className="cv-section">
-            <h3 className="section-title">Languages</h3>
-            <div className="languages-grid">
-              {cv.languages.map((lang, index) => (
-                <div key={index} className="language-item">
-                  <span className="language-name">{lang.language}</span>
-                  <span className="language-proficiency">{lang.proficiency}</span>
-                </div>
-              ))}
-            </div>
-          </section>
-        )}
-      </div>
+      </main>
     </div>
-  )
-}
+  );
+};
 
-export default CVPage
+export default CVPage;

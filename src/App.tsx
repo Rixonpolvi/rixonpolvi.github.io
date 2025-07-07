@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom'
 import HomePage from './components/HomePage'
 import CVPage from './components/CVPage'
 import './App.css'
+import './components/CVPage.css'
 
 // Header Component with Navigation
 function Header() {
@@ -12,9 +13,6 @@ function Header() {
         <ul>
           <li><Link to="/">Home</Link></li>
           <li><Link to="/cv">CV</Link></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#projects">Projects</a></li>
-          <li><a href="#contact">Contact</a></li>
         </ul>
       </nav>
     </header>
