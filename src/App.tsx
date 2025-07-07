@@ -3,7 +3,6 @@ import HomePage from './pages/HomePage'
 import CVPage from './pages/CVPage'
 import TimelinePage from './pages/TimelinePage'
 import './App.css'
-import './components/CVPage.css'
 
 // Header Component with Navigation
 function Header() {
