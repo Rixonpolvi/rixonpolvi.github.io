@@ -1,0 +1,71 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$id": "https://example.com/cv.schema.json",
+    "title": "JSON CV Schema",
+    "description": "Defines the structure for a JSON-based curriculum vitae.",
+    "type": "object",
+    "required": ["personal", "experience", "education", "skills", "metadata"],
+    "properties": {
+        "personal": {
+            "type": "object",
+            "description": "Personal contact and identifying information."
+        },
+        "experience": {
+            "type": "array",
+            "description": "Professional work experience.",
+            "items": {
+                "type": "object",
+                "required": [
+                    "id",
+                    "company",
+                    "position",
+                    "startDate",
+                    "endDate"
+                ],
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "description": "Unique identifier for the job."
+                    },
+                    "company": { "type": "string" },
+                    "position": { "type": "string" },
+                    "startDate": { "type": "string", "format": "date" },
+                    "endDate": {
+                        "type": ["string", "null"],
+                        "format": "date",
+                        "description": "End date or null if current."
+                    },
+                    "achievements": {
+                        "type": "array",
+                        "items": { "type": "string" }
+                    },
+                    "technologies": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "required": ["name", "category"],
+                            "properties": {
+                                "name": { "type": "string" },
+                                "category": { "type": "string" }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "education": {
+            "type": "array"
+        },
+        "skills": {
+            "type": "object"
+        },
+        "metadata": {
+            "type": "object",
+            "required": ["version", "lastUpdated"],
+            "properties": {
+                "version": { "type": "string" },
+                "lastUpdated": { "type": "string", "format": "date-time" }
+            }
+        }
+    }
+}
