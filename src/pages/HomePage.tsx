@@ -34,8 +34,8 @@ function HomePage() {
   return (
     <main>
       <AboutSection />
-      <ProjectsSection />
       <ContactSection />
+      <ProjectCard />
     </main>
   )
 }
