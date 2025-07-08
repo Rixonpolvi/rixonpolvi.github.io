@@ -18,24 +18,6 @@ function ProjectCard({ title, description }: { title: string; description: strin
   )
 }
 
-// Projects Section Component
-function ProjectsSection() {
-  return (
-    <section id="projects">
-      <h2>My Projects</h2>
-      <div className="project-grid">
-        <ProjectCard 
-          title="Project 1" 
-          description="Description of your first project." 
-        />
-        <ProjectCard 
-          title="Project 2" 
-          description="Description of your second project." 
-        />
-      </div>
-    </section>
-  )
-}
 
 // Contact Section Component
 function ContactSection() {
