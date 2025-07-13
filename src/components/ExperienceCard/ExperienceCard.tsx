@@ -1,18 +1,7 @@
 import { getCompanyLogo } from '../../utils/getCompanyLogo'; // Our logo helper
 import SkillPill from '../SkillPill/SkillPill';
 import { formatDate } from '../../utils/formatDate';
-
-// Assuming you have an Experience type defined somewhere, e.g., in cv-types.ts
-// If not, you can define it here.
-interface Experience {
-    id: string;
-    company: string;
-    position: string;
-    startDate: string;
-    endDate: string | null;
-    achievements: string[];
-    technologies: { name: string; category: string }[];
-}
+import type { Experience } from '../../types/cv.types';
 
 interface ExperienceCardProps {
     job: Experience;

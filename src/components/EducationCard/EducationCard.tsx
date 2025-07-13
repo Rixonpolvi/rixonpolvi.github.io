@@ -1,15 +1,6 @@
 import { formatDate } from '../../utils/formatDate';
 import { getCompanyLogo } from '../../utils/getCompanyLogo';
-
-// Define the shape of the education data
-interface Education {
-    id: string;
-    institution: string;
-    degree: string;
-    field: string;
-    startDate: string;
-    endDate: string;
-}
+import type { Education } from '../../types/cv.types';
 
 interface EducationCardProps {
     education: Education;
