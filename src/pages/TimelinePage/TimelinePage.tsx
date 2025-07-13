@@ -1,14 +1,12 @@
-import cvData from '../data/cv.json';
+import cvData from '../../data/cv.json';
 
 const TimelinePage: React.FC = () => {
-  // You can start building your timeline visualization here
-  // For now, let's just put a placeholder
 
   return (
     <div className="timeline-page">
       <h1>My Professional Timeline</h1>
       <p>This page will display a visual timeline of my career.</p>
-      
+
       {/* Example of accessing data to prove it's working */}
       <section>
         <h2>Data Preview:</h2>

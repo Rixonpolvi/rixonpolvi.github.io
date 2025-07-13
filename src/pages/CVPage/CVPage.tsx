@@ -1,7 +1,6 @@
 import cvData from '../../data/cv.json'
 import ExperienceCard from '../../components/ExperienceCard/ExperienceCard';
 import EducationCard from '../../components/EducationCard/EducationCard';
-//import './CVPage.css'
 
 interface Link {
   website: string;
@@ -136,7 +135,7 @@ const CVPage: React.FC = () => {
         <h1 className="text-4xl font-bold mb-8">Experience</h1>
         {/* Container for the list of experience cards */}
         <div className="space-y-8">
-          {cvData.experience.map(job => (
+          {cv.experience.map(job => (
             <ExperienceCard key={job.id} job={job} />
           ))}
         </div>
@@ -146,7 +145,7 @@ const CVPage: React.FC = () => {
       <section className="mt-16"> {/* Add margin-top to create space */}
         <h2 className="text-3xl font-bold mb-8 border-b pb-2">Education</h2>
         <div className="space-y-8">
-          {cvData.education.map(edu => (
+          {cv.education.map(edu => (
             <EducationCard key={edu.id} education={edu} />
           ))}
         </div>

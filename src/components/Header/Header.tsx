@@ -14,11 +14,6 @@ const Header = () => {
                 </NavLink>
               </li>
               <li>
-                <NavLink to="/timeline" className={({ isActive }) => isActive ? 'font-bold text-gray-900' : 'text-gray-600 hover:text-gray-900 transition-colors'}>
-                  Timeline
-                </NavLink>
-              </li>
-              <li>
                 <NavLink to="/cv" className={({ isActive }) => isActive ? 'font-bold text-gray-900' : 'text-gray-600 hover:text-gray-900 transition-colors'}>
                   CV
                 </NavLink>
