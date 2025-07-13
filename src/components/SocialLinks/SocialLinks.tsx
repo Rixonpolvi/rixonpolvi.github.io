@@ -1,5 +1,3 @@
-import React from 'react';
-// Import the specific icons we need from the 'Simple Icons' set
 import { SiLinkedin, SiGithub } from 'react-icons/si';
 
 const SocialLinks: React.FC = () => {

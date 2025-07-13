@@ -1,12 +1,11 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import Header from './components/Header/Header'
 import HomePage from './pages/HomePage'
-import CVPage from './pages/CVPage'
+import CVPage from './pages/CVPage/CVPage'
 import TimelinePage from './pages/TimelinePage'
 import ContactPage from './pages/ContactPage/ContactPage'
 import BlogIndexPage from './pages/BlogIndexPage/BlogIndexPage'
 import BlogPostPage from './pages/BlogPostPage/BlogPostPage'
-//import './App.css'
 
 function App() {
   return (

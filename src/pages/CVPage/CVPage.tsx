@@ -1,5 +1,7 @@
-import cvData from '../data/cv.json'
-import './CVPage.css'
+import cvData from '../../data/cv.json'
+import ExperienceCard from '../../components/ExperienceCard/ExperienceCard';
+import EducationCard from '../../components/EducationCard/EducationCard';
+//import './CVPage.css'
 
 interface Link {
   website: string;
@@ -90,7 +92,7 @@ function formatDate(dateString: string | null): string {
   if (!dateString) {
     return 'Present';
   }
-  
+
   // Create a date object. The constructor correctly handles "YYYY-MM-DD" format.
   const date = new Date(dateString)
   return date.toLocaleDateString('en-US', { year: 'numeric', month: 'short' })
@@ -128,67 +130,27 @@ const CVPage: React.FC = () => {
   const cv: CVData = cvData;
 
   return (
-    <div className="cv-page">
-      <header className="cv-header">
-        <h1>{`${cv.personal.name.first} ${cv.personal.name.middle} ${cv.personal.name.last}`}</h1>
-        <h2>{cv.personal.title}</h2>
-        <div className="contact-info">
-          <a href={`mailto:${cv.personal.email}`}>{cv.personal.email}</a>
-          <span> • </span>
-          <span>{cv.personal.phone}</span>
-          <span> • </span>
-          <a href={cv.personal.links.linkedin} target="_blank" rel="noopener noreferrer">LinkedIn</a>
-        </div>
-      </header>
 
-      <main className="cv-main">
-        <section className="cv-section" id="experience">
-          <h2>Experience</h2>
-          <div className="experience-list">
-            {cv.experience.map(job => <ExperienceItem key={job.id} job={job} />)}
-          </div>
-        </section>
-
-        <section className="cv-section" id="skills">
-          <h2>Skills & Certifications</h2>
-          <div className="skills-certifications-grid">
-            <div className="certifications-list">
-              <h3>Certifications</h3>
-              <ul>
-                {cv.skills.certifications.map(cert => (
-                  <li key={cert.credentialId}>
-                    <strong>{cert.name}</strong> ({cert.issuer})
-                    <br />
-                    <a href={cert.credentialURL} target="_blank" rel="noopener noreferrer">Verify Credential</a>
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div className="skills-list">
-              <h3>Methodologies & Frameworks</h3>
-              {cv.skills.categories.map(category => (
-                <div key={category.name}>
-                    {/* Hiding the category name as it's explicit in the h3 */}
-                    <ul>
-                        {category.items.map(item => <li key={item}>{item}</li>)}
-                    </ul>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        <section className="cv-section" id="education">
-          <h2>Education</h2>
-          {cv.education.map(edu => (
-            <div key={edu.id} className="education-item">
-              <h3>{edu.degree} in {edu.field}</h3>
-              <h4>{edu.institution}</h4>
-              <p>{edu.startDate} – {edu.endDate}</p>
-            </div>
+    <div>
+      <section>
+        <h1 className="text-4xl font-bold mb-8">Experience</h1>
+        {/* Container for the list of experience cards */}
+        <div className="space-y-8">
+          {cvData.experience.map(job => (
+            <ExperienceCard key={job.id} job={job} />
           ))}
-        </section>
-      </main>
+        </div>
+      </section >
+
+
+      <section className="mt-16"> {/* Add margin-top to create space */}
+        <h2 className="text-3xl font-bold mb-8 border-b pb-2">Education</h2>
+        <div className="space-y-8">
+          {cvData.education.map(edu => (
+            <EducationCard key={edu.id} education={edu} />
+          ))}
+        </div>
+      </section>
     </div>
   );
 };

@@ -1,236 +1,236 @@
 {
-    "$schema": "../../cv.schema.json",
-    "personal": {
-        "name": {
-            "first": "Rixon",
-            "middle": "Tung-Du",
-            "last": "Polvi"
-        },
-        "title": "Senior Security Consultant",
-        "email": "rixonpolvi94@gmail.com",
-        "phone": "647-994-8415",
-        "city": "Toronto",
-        "country": "Canada",
-        "links": {
-            "website": "",
-            "linkedin": "https://www.linkedin.com/in/rixon-polvi/",
-            "github": "",
-            "portfolio": ""
-        }
+  "$schema": "../../cv.schema.json",
+  "personal": {
+    "name": {
+      "first": "Rixon",
+      "middle": "Tung-Du",
+      "last": "Polvi"
     },
-    "summary": "",
-    "experience": [
-        {
-            "id": "2023-telus-senior-security-consultant",
-            "company": "Telus",
-            "position": "Senior Security Consultant",
-            "startDate": "2023-02-01",
-            "endDate": null,
-            "description": "",
-            "achievements": [
-                "Led the XSOAR team and managed projects from inception to delivery, improving operational efficiency and reducing response times. Wrote custom Python scripts and playbooks to support Telus’ SOC.",
-                "Worked closely with the SOC team to address pain points, alert fatigue, standardising formats and fields, and enhancing analyst procedures’ quality.",
-                "Integrated Telus' security services (Sentinel, MS Defender, Elastic, CrowdStrike Falcon, Harmony Email & Collaboration) with the XSOAR platform, developing baseline playbooks to enhance IOC analysis and highlight critical information for security analysts.",
-                "Acted as the lead technical resource for Telus’ Sentinel service, providing clients with custom use case development, onboarding, and operational support.",
-                "Developed and deployed SIEM Use Cases for Telus customers, mapped to the MITRE ATT&CK framework.",
-                "Contributed to the deployment and maintenance of cloud solutions within Azure and GCP using Terraform."
-            ],
-            "technologies": [
-                { "name": "Splunk", "category": "SIEM & Log Management" },
-                {
-                    "name": "Elasticsearch",
-                    "category": "SIEM & Log Management"
-                },
-                {
-                    "name": "Azure Sentinel",
-                    "category": "SIEM & Log Management"
-                },
-                { "name": "LogRhythm", "category": "SIEM & Log Management" },
-                {
-                    "name": "CrowdStrike Falcon",
-                    "category": "Endpoint Security"
-                },
-                { "name": "Cortex XDR", "category": "Endpoint Security" },
-                {
-                    "name": "Microsoft Defender",
-                    "category": "Endpoint Security"
-                },
-                { "name": "Python", "category": "Scripting & Automation" },
-                { "name": "PowerShell", "category": "Scripting & Automation" },
-                { "name": "GCP", "category": "Cloud Services" },
-                { "name": "Azure", "category": "Cloud Services" },
-                { "name": "Docker", "category": "Containerization" },
-                { "name": "KQL", "category": "Query Languages" },
-                { "name": "SPL", "category": "Query Languages" },
-                { "name": "ES|QL", "category": "Query Languages" },
-                {
-                    "name": "XSOAR",
-                    "category": "Security Orchestration, Automation, and Response"
-                },
-                {
-                    "name": "Google SecOps",
-                    "category": "Security Orchestration, Automation, and Response"
-                },
-                { "name": "Terraform", "category": "Infrastructure as Code" }
-            ]
-        },
-        {
-            "id": "2022-ledn-senior-soc-engineer",
-            "company": "Ledn",
-            "position": "Senior SOC Engineer",
-            "startDate": "2022-05-01",
-            "endDate": "2022-12-31",
-            "description": "Led SOC operations and detection engineering for cryptocurrency financial services platform.",
-            "achievements": [
-                "Spearheaded the development of the SOC roadmap, aligning strategies with organizational objectives to drive operational success",
-                "Developed and tuned Splunk use cases for cloud and on-prem data sources",
-                "Identified security risks in conjunction with the IT team, and developed rules and implemented security policies to protect the organization.",
-                "Managed the configuration and parsing of new log sources into Splunk",
-                "Performed indicator-driven and ad-hoc hunts using OSINT IOCs",
-                "Led SIEM investigations and documented incidents, providing remediation and root-cause analyses",
-                "Engineered a Docker-based virtual SIEM lab for continuous testing of detection rules and TI feeds"
-            ],
-            "technologies": [
-                { "name": "Splunk", "category": "SIEM & Log Management" },
-                { "name": "SPL", "category": "Query Languages" },
-                { "name": "AWS", "category": "Cloud Services" },
-                { "name": "Docker", "category": "Containerization" },
-                { "name": "Terraform", "category": "Infrastructure as Code" },
-                { "name": "Python", "category": "Scripting & Automation" },
-                { "name": "Okta", "category": "Identity & Access Management" },
-                { "name": "Jamf", "category": "Enterprise Device Management" }
-            ]
-        },
-        {
-            "id": "2021-deloitte-threat-content-team-lead",
-            "company": "Deloitte",
-            "position": "Threat Content Team Lead",
-            "startDate": "2021-11-01",
-            "endDate": "2022-05-31",
-            "description": "Managed the SIEM content development team and stakeholder communications for enterprise security consulting engagements.",
-            "achievements": [
-                "Oversaw content activities post log4j disclosure - coordinated Deloitte Cyber Intelligence Center’s official response with the threat hunting and operations teams.",
-                "Responsible for delegation of SIEM content team resources and projects",
-                "Effectively communicated complex security ideas to stakeholders of varying technical backgrounds",
-                "Led workshops, performed security posture review, and use case proposals with clients",
-                "Designed an agile use case development process, empowering developers and decreasing time to production."
-            ],
-            "technologies": [
-                { "name": "Splunk", "category": "SIEM & Log Management" },
-                { "name": "QRadar", "category": "SIEM & Log Management" },
-                { "name": "Python", "category": "Scripting & Automation" }
-            ]
-        },
-        {
-            "id": "2020-deloitte-threat-content-specialist",
-            "company": "Deloitte",
-            "position": "Threat Content Specialist",
-            "startDate": "2020-02-01",
-            "endDate": "2021-10-31",
-            "description": "Specialized in log analysis, alert investigation, and detection solution development for enterprise clients.",
-            "achievements": [
-                "Performed in-depth analysis of logs and alerts, and proposed and developed detection solutions to clients.",
-                "Utilized MITRE ATT@CK framework for categorizing malicious activity and rules.",
-                "Researched emerging threats and zero-days to create novel detection rules for clients.",
-                "Develop both standard and custom reports for data analysis and informed decision making."
-            ],
-            "technologies": [
-                { "name": "Splunk", "category": "SIEM & Log Management" },
-                { "name": "QRadar", "category": "SIEM & Log Management" },
-                { "name": "LogRhythm", "category": "SIEM & Log Management" },
-                { "name": "Python", "category": "Scripting & Automation" },
-                { "name": "PowerShell", "category": "Scripting & Automation" },
-                { "name": "Regex", "category": "Data Manipulation" },
-                { "name": "SPL", "category": "Query Languages" }
-            ]
-        },
-        {
-            "id": "2017-scalar-decisions-soc-analyst",
-            "company": "Scalar Decisions",
-            "position": "SOC Analyst",
-            "startDate": "2017-10-01",
-            "endDate": "2020-01-31",
-            "description": "Full-spectrum SOC operations at a managed security service provider, handling the complete incident lifecycle from initial triage through remediation recommendations.",
-            "achievements": [
-                "Performed comprehensive security event triage and analysis across multiple client environments simultaneously.",
-                "Conducted deep-dive investigations into complex security incidents, providing detailed forensic analysis and timeline reconstruction.",
-                "Performed spam analysis, including handling malicious executables in a lab environment.",
-                "Managed client relationships as primary technical liaison, handling ad-hoc requests and serving as point of contact on escalations.",
-                "Triaged security alerts across 3 SIEM platforms, correlating IOCs with threat intelligence feeds to reduce false positives."
-            ],
-            "technologies": [
-                { "name": "Splunk", "category": "SIEM & Log Management" },
-                { "name": "LogRhythm", "category": "SIEM & Log Management" },
-                { "name": "QRadar", "category": "SIEM & Log Management" },
-                { "name": "Proofpoint", "category": "Email Security" },
-                { "name": "Palo Alto", "category": "NGFW" }
-            ]
-        },
-        {
-            "id": "2017-cibc-l1-soc-analyst",
-            "company": "CIBC",
-            "position": "L1 SOC Analyst (Co-op)",
-            "startDate": "2017-01-01",
-            "endDate": "2017-04-30",
-            "description": "Served as a first-line defender in a 24/7 enterprise SOC environment, responsible for real-time monitoring, triage, and escalation of security alerts from a diverse range of security tools.",
-            "achievements": [
-                "Monitored and triaged security alerts daily from SIEM, consistently meeting SLAs for initial analysis.",
-                "Conducted data loss prevention assessments using rule-based heuristics to identify sensitive data exposure risks.",
-                "Escalated security events for in-depth investigation, providing detailed initial findings that accelerated the incident response lifecycle.",
-                "Collaborated with senior analysts to understand incident timelines and root cause analysis for major security incidents."
-            ],
-            "technologies": [
-                { "name": "QRadar", "category": "SIEM & Log Management" },
-                { "name": "ArcSight", "category": "SIEM & Log Management" },
-                {
-                    "name": "Symantec DLP",
-                    "category": "Data Loss Prevention"
-                }
-            ]
-        }
-    ],
-    "education": [
-        {
-            "id": "2017-seneca-btech",
-            "institution": "Seneca College",
-            "degree": "Bachelor of Technology",
-            "field": "Informatics and Security",
-            "startDate": "2013-01-01",
-            "endDate": "2017-08-31"
-        }
-    ],
-    "skills": {
-        "description": "This section lists skills not directly tied to a specific job, such as those in development or foundational concepts. The full skill set is generated by combining this list with technologies from professional experience.",
-        "categories": [
-            {
-                "name": "Currently Learning",
-                "items": []
-            },
-            {
-                "name": "Methodologies & Frameworks",
-                "items": ["MITRE ATT&CK", "NIST Cybersecurity Framework"]
-            }
-        ],
-        "languages": [
-            {
-                "name": "English",
-                "proficiency": "Native"
-            }
-        ],
-        "certifications": [
-            {
-                "name": "Certified Information Systems Security Professional (CISSP)",
-                "issuer": "ISC²",
-                "date": "2021-10-13",
-                "expiryDate": "2027-10-31",
-                "credentialId": "920852",
-                "credentialURL": "https://www.credly.com/badges/382430d6-7619-4c96-a132-79c66315419f/public_url"
-            }
-        ]
-    },
-    "metadata": {
-        "version": "1.0",
-        "lastUpdated": "2025-07-07T12:00:00Z",
-        "format": "json-cv"
+    "title": "Senior Security Consultant",
+    "email": "rixonpolvi94@gmail.com",
+    "phone": "647-994-8415",
+    "city": "Toronto",
+    "country": "Canada",
+    "links": {
+      "website": "",
+      "linkedin": "https://www.linkedin.com/in/rixon-polvi/",
+      "github": "",
+      "portfolio": ""
     }
+  },
+  "summary": "",
+  "experience": [
+    {
+      "id": "2023-telus-senior-security-consultant",
+      "company": "Telus",
+      "position": "Senior Security Consultant",
+      "startDate": "2023-02-01",
+      "endDate": null,
+      "description": "",
+      "achievements": [
+        "Led the XSOAR team and managed projects from inception to delivery, improving operational efficiency and reducing response times. Wrote custom Python scripts and playbooks to support Telus’ SOC.",
+        "Worked closely with the SOC team to address pain points, alert fatigue, standardising formats and fields, and enhancing analyst procedures’ quality.",
+        "Integrated Telus' security services (Sentinel, MS Defender, Elastic, CrowdStrike Falcon, Harmony Email & Collaboration) with the XSOAR platform, developing baseline playbooks to enhance IOC analysis and highlight critical information for security analysts.",
+        "Acted as the lead technical resource for Telus’ Sentinel service, providing clients with custom use case development, onboarding, and operational support.",
+        "Developed and deployed SIEM Use Cases for Telus customers, mapped to the MITRE ATT&CK framework.",
+        "Contributed to the deployment and maintenance of cloud solutions within Azure and GCP using Terraform."
+      ],
+      "technologies": [
+        { "name": "Splunk", "category": "SIEM & Log Management" },
+        {
+          "name": "Elasticsearch",
+          "category": "SIEM & Log Management"
+        },
+        {
+          "name": "Azure Sentinel",
+          "category": "SIEM & Log Management"
+        },
+        { "name": "LogRhythm", "category": "SIEM & Log Management" },
+        {
+          "name": "CrowdStrike Falcon",
+          "category": "Endpoint Security"
+        },
+        { "name": "Cortex XDR", "category": "Endpoint Security" },
+        {
+          "name": "Microsoft Defender",
+          "category": "Endpoint Security"
+        },
+        { "name": "Python", "category": "Scripting & Automation" },
+        { "name": "PowerShell", "category": "Scripting & Automation" },
+        { "name": "GCP", "category": "Cloud Services" },
+        { "name": "Azure", "category": "Cloud Services" },
+        { "name": "Docker", "category": "Containerization" },
+        { "name": "KQL", "category": "Query Languages" },
+        { "name": "SPL", "category": "Query Languages" },
+        { "name": "ES|QL", "category": "Query Languages" },
+        {
+          "name": "XSOAR",
+          "category": "Security Orchestration, Automation, and Response"
+        },
+        {
+          "name": "Google SecOps",
+          "category": "Security Orchestration, Automation, and Response"
+        },
+        { "name": "Terraform", "category": "Infrastructure as Code" }
+      ]
+    },
+    {
+      "id": "2022-ledn-senior-soc-engineer",
+      "company": "Ledn",
+      "position": "Senior SOC Engineer",
+      "startDate": "2022-05-01",
+      "endDate": "2022-12-31",
+      "description": "Led SOC operations and detection engineering for cryptocurrency financial services platform.",
+      "achievements": [
+        "Spearheaded the development of the SOC roadmap, aligning strategies with organizational objectives to drive operational success",
+        "Developed and tuned Splunk use cases for cloud and on-prem data sources",
+        "Identified security risks in conjunction with the IT team, and developed rules and implemented security policies to protect the organization.",
+        "Managed the configuration and parsing of new log sources into Splunk",
+        "Performed indicator-driven and ad-hoc hunts using OSINT IOCs",
+        "Led SIEM investigations and documented incidents, providing remediation and root-cause analyses",
+        "Engineered a Docker-based virtual SIEM lab for continuous testing of detection rules and TI feeds"
+      ],
+      "technologies": [
+        { "name": "Splunk", "category": "SIEM & Log Management" },
+        { "name": "SPL", "category": "Query Languages" },
+        { "name": "AWS", "category": "Cloud Services" },
+        { "name": "Docker", "category": "Containerization" },
+        { "name": "Terraform", "category": "Infrastructure as Code" },
+        { "name": "Python", "category": "Scripting & Automation" },
+        { "name": "Okta", "category": "Identity & Access Management" },
+        { "name": "Jamf", "category": "Enterprise Device Management" }
+      ]
+    },
+    {
+      "id": "2021-deloitte-threat-content-team-lead",
+      "company": "Deloitte",
+      "position": "Threat Content Team Lead",
+      "startDate": "2021-11-01",
+      "endDate": "2022-04-30",
+      "description": "Managed the SIEM content development team and stakeholder communications for enterprise security consulting engagements.",
+      "achievements": [
+        "Oversaw content activities post log4j disclosure - coordinated Deloitte Cyber Intelligence Center’s official response with the threat hunting and operations teams.",
+        "Responsible for delegation of SIEM content team resources and projects",
+        "Effectively communicated complex security ideas to stakeholders of varying technical backgrounds",
+        "Led workshops, performed security posture review, and use case proposals with clients",
+        "Designed an agile use case development process, empowering developers and decreasing time to production."
+      ],
+      "technologies": [
+        { "name": "Splunk", "category": "SIEM & Log Management" },
+        { "name": "QRadar", "category": "SIEM & Log Management" },
+        { "name": "Python", "category": "Scripting & Automation" }
+      ]
+    },
+    {
+      "id": "2020-deloitte-threat-content-specialist",
+      "company": "Deloitte",
+      "position": "Threat Content Specialist",
+      "startDate": "2020-02-01",
+      "endDate": "2021-10-31",
+      "description": "Specialized in log analysis, alert investigation, and detection solution development for enterprise clients.",
+      "achievements": [
+        "Performed in-depth analysis of logs and alerts, and proposed and developed detection solutions to clients.",
+        "Utilized MITRE ATT@CK framework for categorizing malicious activity and rules.",
+        "Researched emerging threats and zero-days to create novel detection rules for clients.",
+        "Develop both standard and custom reports for data analysis and informed decision making."
+      ],
+      "technologies": [
+        { "name": "Splunk", "category": "SIEM & Log Management" },
+        { "name": "QRadar", "category": "SIEM & Log Management" },
+        { "name": "LogRhythm", "category": "SIEM & Log Management" },
+        { "name": "Python", "category": "Scripting & Automation" },
+        { "name": "PowerShell", "category": "Scripting & Automation" },
+        { "name": "Regex", "category": "Data Manipulation" },
+        { "name": "SPL", "category": "Query Languages" }
+      ]
+    },
+    {
+      "id": "2017-scalar-decisions-soc-analyst",
+      "company": "Scalar Decisions",
+      "position": "SOC Analyst",
+      "startDate": "2017-10-01",
+      "endDate": "2020-01-31",
+      "description": "Full-spectrum SOC operations at a managed security service provider, handling the complete incident lifecycle from initial triage through remediation recommendations.",
+      "achievements": [
+        "Performed comprehensive security event triage and analysis across multiple client environments simultaneously.",
+        "Conducted deep-dive investigations into complex security incidents, providing detailed forensic analysis and timeline reconstruction.",
+        "Performed spam analysis, including handling malicious executables in a lab environment.",
+        "Managed client relationships as primary technical liaison, handling ad-hoc requests and serving as point of contact on escalations.",
+        "Triaged security alerts across 3 SIEM platforms, correlating IOCs with threat intelligence feeds to reduce false positives."
+      ],
+      "technologies": [
+        { "name": "Splunk", "category": "SIEM & Log Management" },
+        { "name": "LogRhythm", "category": "SIEM & Log Management" },
+        { "name": "QRadar", "category": "SIEM & Log Management" },
+        { "name": "Proofpoint", "category": "Email Security" },
+        { "name": "Palo Alto", "category": "NGFW" }
+      ]
+    },
+    {
+      "id": "2017-cibc-l1-soc-analyst",
+      "company": "CIBC",
+      "position": "L1 SOC Analyst (Co-op)",
+      "startDate": "2017-01-01",
+      "endDate": "2017-04-30",
+      "description": "Served as a first-line defender in a 24/7 enterprise SOC environment, responsible for real-time monitoring, triage, and escalation of security alerts from a diverse range of security tools.",
+      "achievements": [
+        "Monitored and triaged security alerts daily from SIEM, consistently meeting SLAs for initial analysis.",
+        "Conducted data loss prevention assessments using rule-based heuristics to identify sensitive data exposure risks.",
+        "Escalated security events for in-depth investigation, providing detailed initial findings that accelerated the incident response lifecycle.",
+        "Collaborated with senior analysts to understand incident timelines and root cause analysis for major security incidents."
+      ],
+      "technologies": [
+        { "name": "QRadar", "category": "SIEM & Log Management" },
+        { "name": "ArcSight", "category": "SIEM & Log Management" },
+        {
+          "name": "Symantec DLP",
+          "category": "Data Loss Prevention"
+        }
+      ]
+    }
+  ],
+  "education": [
+    {
+      "id": "2017-seneca-btech",
+      "institution": "Seneca College",
+      "degree": "Bachelor of Technology",
+      "field": "Informatics and Security",
+      "startDate": "2013-01-01",
+      "endDate": "2017-08-31"
+    }
+  ],
+  "skills": {
+    "description": "This section lists skills not directly tied to a specific job, such as those in development or foundational concepts. The full skill set is generated by combining this list with technologies from professional experience.",
+    "categories": [
+      {
+        "name": "Currently Learning",
+        "items": []
+      },
+      {
+        "name": "Methodologies & Frameworks",
+        "items": ["MITRE ATT&CK", "NIST Cybersecurity Framework"]
+      }
+    ],
+    "languages": [
+      {
+        "name": "English",
+        "proficiency": "Native"
+      }
+    ],
+    "certifications": [
+      {
+        "name": "Certified Information Systems Security Professional (CISSP)",
+        "issuer": "ISC²",
+        "date": "2021-10-13",
+        "expiryDate": "2027-10-31",
+        "credentialId": "920852",
+        "credentialURL": "https://www.credly.com/badges/382430d6-7619-4c96-a132-79c66315419f/public_url"
+      }
+    ]
+  },
+  "metadata": {
+    "version": "1.0",
+    "lastUpdated": "2025-07-07T12:00:00Z",
+    "format": "json-cv"
+  }
 }
