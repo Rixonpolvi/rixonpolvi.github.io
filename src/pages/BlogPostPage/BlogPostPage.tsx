@@ -3,7 +3,9 @@ import { useParams, Link } from 'react-router-dom';
 import { IoArrowBack } from 'react-icons/io5';
 import { posts } from '../../blog/post-metadata';
 import { formatDate } from '../../utils/formatDate';
+import ScrollProgressBar from '../../components/ScrollProgressBar/ScrollProgressBar';
 
+// Blog posts
 import VerifyingDataIngestioninMicrosoftSentinel from '../../blog/posts/VerifyingDataIngestioninMicrosoftSentinel';
 
 const postContentComponents: { [key: string]: React.ComponentType } = {
@@ -38,6 +40,7 @@ const BlogPostPage: React.FC = () => {
   // Render the post
   return (
     <div>
+      <ScrollProgressBar />
       <Link
         to="/blog"
         className="inline-flex items-center gap-2 text-gray-500 hover:text-gray-900 mb-8 group"
