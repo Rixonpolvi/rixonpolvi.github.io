@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { posts } from '../../blog/post-metadata'; // Import our metadata
-import { formatDate } from '../../utils/formatDate'; // Assuming you have this helper
+import { formatDate } from '../../utils/formatDate';
 
 const BlogIndexPage: React.FC = () => {
     return (

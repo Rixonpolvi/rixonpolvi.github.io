@@ -1,34 +1,26 @@
 import { useMemo } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { IoArrowBack } from 'react-icons/io5'; 
+import { IoArrowBack } from 'react-icons/io5';
 import { posts } from '../../blog/post-metadata';
 import { formatDate } from '../../utils/formatDate';
 
-// 1. Import all your post components
-import FirstPost from '../../blog/posts/FirstPost';
-
-// 2. Create a mapping from slug to component
-import POST_2NDPost from '../../blog/posts/2NDPost';
-
-import ThirdPost from '../../blog/posts/ThirdPost';
+import VerifyingDataIngestioninMicrosoftSentinel from '../../blog/posts/VerifyingDataIngestioninMicrosoftSentinel';
 
 const postContentComponents: { [key: string]: React.ComponentType } = {
-  'third-post': ThirdPost,
-  '2nd-post': POST_2NDPost,
-  'first-post': FirstPost,
+  'verifying-data-ingestion-in-microsoft-sentinel': VerifyingDataIngestioninMicrosoftSentinel,
 };
 
 const BlogPostPage: React.FC = () => {
-  // 3. Get the slug from the URL
+  // Get the slug from the URL
   const { slug } = useParams<{ slug: string }>();
 
-  // 4. Find the metadata for the current post
+  // Find the metadata for the current post
   const postMeta = useMemo(() => posts.find(p => p.slug === slug), [slug]);
-  
-  // 5. Find the content component for the current post
+
+  // Find the content component for the current post
   const PostContent = slug ? postContentComponents[slug] : null;
 
-  // 6. Handle the case where the post is not found
+  // Handle the case where the post is not found
   if (!postMeta || !PostContent) {
     return (
       <div>
@@ -43,7 +35,7 @@ const BlogPostPage: React.FC = () => {
     );
   }
 
-  // 7. Render the post
+  // Render the post
   return (
     <div>
       <Link
@@ -54,15 +46,14 @@ const BlogPostPage: React.FC = () => {
         <span className="group-hover:underline">Back to all posts</span>
       </Link>
 
-      {/* The rest of the post content, now wrapped in a div */}    
-    <div className="prose lg:prose-xl max-w-none"> {/* 'prose' gives nice typography */}
-      <h1 className="font-bold">{postMeta.title}</h1>
-      <p className="text-base text-gray-500 !-mt-4 mb-8">
-        Published on {formatDate(postMeta.date)}
-      </p>
-      <PostContent />
+      <div className="prose lg:prose-xl max-w-none">
+        <h1 className="font-bold">{postMeta.title}</h1>
+        <p className="text-base text-gray-500 !-mt-4 mb-8">
+          Published on {formatDate(postMeta.date)}
+        </p>
+        <PostContent />
+      </div>
     </div>
-  </div>
   );
 };
 
