@@ -58,13 +58,14 @@ jobs:
       with:
         path: ./dist  # The folder with the built files
 
-  # Job 2: Deploy to GitHub Pages (happens after build succeeds)
+  # Job 2: Deploy to GitHub Pages
   deploy:
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     needs: build  # Wait for build job to finish first
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
     
     steps:
     # Deploy the uploaded files to GitHub Pages
