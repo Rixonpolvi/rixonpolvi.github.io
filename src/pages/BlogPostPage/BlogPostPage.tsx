@@ -7,9 +7,12 @@ import ScrollProgressBar from '../../components/ScrollProgressBar/ScrollProgress
 
 // Blog posts
 import VerifyingDataIngestioninMicrosoftSentinel from '../../blog/posts/VerifyingDataIngestioninMicrosoftSentinel';
+import ShiftingLeftIntegratingVulnerabilityScanningIntoYourCICDPipeline from '../../blog/posts/ShiftingLeftIntegratingVulnerabilityScanningIntoYourCICDPipeline';
+
 
 const postContentComponents: { [key: string]: React.ComponentType } = {
   'verifying-data-ingestion-in-microsoft-sentinel': VerifyingDataIngestioninMicrosoftSentinel,
+  'shfting-left-integrating-vulnerability-scanning-into-your-cicd-pipeline' : ShiftingLeftIntegratingVulnerabilityScanningIntoYourCICDPipeline,
 };
 
 const BlogPostPage: React.FC = () => {
