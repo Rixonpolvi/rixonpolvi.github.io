@@ -6,8 +6,8 @@ name: Deploy React App to GitHub Pages
 # When should the robot wake up?
 on:
   push:
-    branches: [ main ]  # Every time you push to the main branch
-  
+    branches: [main] # Every time you push to the main branch
+
   # Allow manual triggering from GitHub website
   workflow_dispatch:
 
@@ -25,37 +25,41 @@ concurrency:
 jobs:
   # Job 1: Build the React app
   build:
-    runs-on: ubuntu-latest  # Use a Linux computer in the cloud
-    
+    runs-on: ubuntu-latest # Use a Linux computer in the cloud
+
     steps:
-    # Step 1: Download your code
-    - name: 📥 Download code from GitHub
-      uses: actions/checkout@v4
-    
-    # Step 2: Set up Node.js (like installing the kitchen tools)
-    - name: 🔧 Set up Node.js
-      uses: actions/setup-node@v4
-      with:
-        node-version: '20'
-        cache: 'npm'  # Cache packages for faster builds
-    
-    # Step 3: Install dependencies (like getting ingredients)
-    - name: 📦 Install dependencies
-      run: npm ci  # Like npm install but faster for automation
-    
-    # Step 4: Build the React app (like baking the cake)
-    - name: 🏗️ Build React app
-      run: npm run build
-    
-    # Step 5: Set up GitHub Pages
-    - name: 📄 Setup Pages
-      uses: actions/configure-pages@v5
-    
-    # Step 6: Upload the built files
-    - name: 📤 Upload built website
-      uses: actions/upload-pages-artifact@v3
-      with:
-        path: ./dist  # The folder with the built files
+      # Download your code
+      - name: 📥 Download code from GitHub
+        uses: actions/checkout@v4
+
+      # Set up Node.js
+      - name: 🔧 Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm" # Cache packages for faster builds
+
+      # Install dependencies
+      - name: 📦 Install dependencies
+        run: npm ci # Like npm install but faster for automation
+
+      # Dependency scanning
+      - name: 🛡️ Run Security Audit
+        run: npm audit --audit-level=high
+
+      # Build the React app
+      - name: 🏗️ Build React app
+        run: npm run build
+
+      # Set up GitHub Pages
+      - name: 📄 Setup Pages
+        uses: actions/configure-pages@v5
+
+      # Upload the built files
+      - name: 📤 Upload built website
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./dist # The folder with the built files
 
   # Job 2: Deploy to GitHub Pages (happens after build succeeds)
   deploy:
@@ -63,10 +67,10 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
-    needs: build  # Wait for build job to finish first
-    
+    needs: build # Wait for build job to finish first
+
     steps:
-    # Deploy the uploaded files to GitHub Pages
-    - name: 🚀 Deploy to GitHub Pages
-      id: deployment
-      uses: actions/deploy-pages@v4
+      # Deploy the uploaded files to GitHub Pages
+      - name: 🚀 Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
