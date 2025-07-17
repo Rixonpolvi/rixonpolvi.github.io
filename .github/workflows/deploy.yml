@@ -1,23 +1,24 @@
-# GitHub Actions Workflow - Your Personal Robot! 🤖
-# This file tells GitHub what to do when you push code
-
 name: Deploy React App to GitHub Pages
 
-# When should the robot wake up?
 on:
+  # for direct commits or merges
   push:
-    branches: [main] # Every time you push to the main branch
+    branches: [ main ]  
+  
+    # on pull requests targeting main
+    # when a PR is opened, updated, or reopened
+  pull_request:
+    branches: [ main ]
+    types: [ opened, synchronize, reopened]
 
-  # Allow manual triggering from GitHub website
+  # manual triggering from GitHub
   workflow_dispatch:
 
-# What permissions does the robot need?
 permissions:
   contents: read
   pages: write
   id-token: write
 
-# Only one deployment at a time
 concurrency:
   group: "pages"
   cancel-in-progress: false
@@ -61,13 +62,14 @@ jobs:
         with:
           path: ./dist # The folder with the built files
 
-  # Job 2: Deploy to GitHub Pages (happens after build succeeds)
+  # Job 2: Deploy to GitHub Pages
   deploy:
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
-    needs: build # Wait for build job to finish first
+    needs: build  # Wait for build job to finish first
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
 
     steps:
       # Deploy the uploaded files to GitHub Pages
