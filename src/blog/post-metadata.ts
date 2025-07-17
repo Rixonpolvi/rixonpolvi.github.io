@@ -13,4 +13,11 @@ export const posts: PostMeta[] = [
     summary:
       "Exploring a solution for silent log source monitoring in Microsoft Sentinel.",
   },
+  {
+    slug: "shfting-left-integrating-vulnerability-scanning-into-your-cicd-pipeline",
+    title: "Shifting Left: Integrating Vulnerability Scanning into your CI/CD Pipeline",
+    date: "2025-07-16",
+    summary:
+      "Leveraging npm audit to block the deployment of vulnerable software dependencies.",
+  },
 ];
