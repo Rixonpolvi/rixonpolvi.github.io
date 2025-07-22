@@ -12,7 +12,8 @@ import ShiftingLeftIntegratingVulnerabilityScanningIntoYourCICDPipeline from '..
 
 const postContentComponents: { [key: string]: React.ComponentType } = {
   'verifying-data-ingestion-in-microsoft-sentinel': VerifyingDataIngestioninMicrosoftSentinel,
-  'shfting-left-integrating-vulnerability-scanning-into-your-cicd-pipeline' : ShiftingLeftIntegratingVulnerabilityScanningIntoYourCICDPipeline,
+  // DEV to hide unfinished post
+  'DEV_shfting-left-integrating-vulnerability-scanning-into-your-cicd-pipeline': ShiftingLeftIntegratingVulnerabilityScanningIntoYourCICDPipeline,
 };
 
 const BlogPostPage: React.FC = () => {
